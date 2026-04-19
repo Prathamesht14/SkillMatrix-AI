@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         formData.append('resume', file);
 
         try {
-            const response = await fetch('http://localhost:3000/analyze-resume', {
+            const response = await fetch('http://107.23.94.11:3000/analyze', {
                 method: 'POST',
                 body: formData // No Headers content-type required for FormData (browser sets boundary)
             });
