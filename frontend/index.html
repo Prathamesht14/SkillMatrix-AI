@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillMatrix AI | Manual Analyzer</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow-bg glow-1"></div>
+    <div class="glow-bg glow-2"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">SkillMatrix <span>AI</span></a>
+            <div class="nav-links">
+                <a href="/" class="active">Manual Analysis</a>
+                <a href="/resume-analyzer">Resume Analyzer</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="badge">RAG-Based Analysis Engine</div>
+            <h1>Skill Gap <span class="gradient-text">Analyzer</span></h1>
+            <p>Select your target role and input your current skills to get a tailored learning trajectory natively matched with industry metadata.</p>
+        </header>
+
+        <main class="analyzer-wrapper">
+            <!-- Left Side: Input Form -->
+            <section class="card input-section">
+                <h2>Analyze Your Skills</h2>
+                <form id="analyzer-form">
+                    
+                    <div class="form-group">
+                        <label for="job-role">Target Job Role</label>
+                        <input type="text" id="job-role" placeholder="e.g. Frontend Developer" autocomplete="off" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="skill-input">Your Current Skills</label>
+                        <div class="tags-input-container" id="tags-container">
+                            <input type="text" id="skill-input" placeholder="Type a skill and press Enter" autocomplete="off">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="analyze-btn" class="btn-primary">
+                        <span class="btn-text">Analyze Skills</span>
+                        <div class="loader" id="btn-loader"></div>
+                    </button>
+                    <div id="error-message" class="error-text"></div>
+                </form>
+            </section>
+
+            <!-- Right Side: Results -->
+            <section class="card results-section hidden" id="results-section">
+                <div class="results-header">
+                    <h2>Analysis Results</h2>
+                    <div class="role-badge" id="analyzed-role-badge"></div>
+                </div>
+
+                <div class="match-score-container">
+                    <div class="circular-progress" id="circular-progress">
+                        <div class="inner-circle"><span id="progress-value">0%</span></div>
+                    </div>
+                    <div class="score-text">
+                        <h3>Match Score</h3>
+                        <p>Based on current industry requirements</p>
+                    </div>
+                </div>
+
+                <div class="skills-assessment">
+                    <div class="skill-group">
+                        <h3 style="color: var(--success-text)">Existing Skills <span id="existing-count">(0)</span></h3>
+                        <div class="tags-grid" id="existing-skills-grid"></div>
+                    </div>
+                    <div class="skill-group">
+                        <h3 style="color: var(--danger-text)">Missing Knowledge <span id="missing-count">(0)</span></h3>
+                        <div class="tags-grid" id="missing-skills-grid"></div>
+                    </div>
+                </div>
+
+                <div class="suggestions-container">
+                    <h3 style="margin-bottom:15px; font-weight:600; font-size:1.1rem">Learning Path Suggestions</h3>
+                    <ul class="suggestions-list" id="suggestions-list"></ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Script specifically for the manual input section -->
+    <script src="app.js"></script>
+</body>
+</html>
